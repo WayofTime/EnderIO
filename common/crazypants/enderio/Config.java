@@ -96,7 +96,7 @@ public final class Config {
     conduitScale = VecmathUtil.clamp(conduitScale, 0, 1);
 
     useAlternateTesseractModel = config.get("Settings", "useAlternateTransceiverModel", useAlternateTesseractModel,
-        "Use TheKazador's alternatice model for the Dimensional Transceiver")
+        "Use TheKazador's alternative model for the Dimensional Transceiver")
         .getBoolean(false);
     transceiverEnergyLoss = config.get("Settings", "transceiverEnergyLoss", transceiverEnergyLoss,
         "Amount of energy lost when transfered by Dimensional Transceiver 0 is no loss, 1 is 100% loss").getDouble(transceiverEnergyLoss);

@@ -83,9 +83,25 @@ public class MaterialRecipes {
     // Wrench
     GameRegistry.addShapedRecipe(wrench, "s s", " b ", " s ", 's', electricalSteel, 'b', basicGear);
 
-    // Machine Chassi
-    GameRegistry.addShapedRecipe(machineChassi, "fif", "i i", "fif", 'f', Block.fenceIron, 'i', Item.ingotIron);
 
+    
+    // Machine Chassi
+    
+    ArrayList<ItemStack> steelIngots = OreDictionary.getOres("ingotSteel");
+    Object metal;
+    if(steelIngots != null && !steelIngots.isEmpty()) {
+      metal = "ingotSteel";
+    } else {
+      metal = Item.ingotIron;
+    }
+    
+    if(Config.useHardRecipes) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(machineChassi, "fmf", "m m", "fmf", 'f', Block.fenceIron, 'm', metal));
+      } else {
+    	GameRegistry.addShapedRecipe(machineChassi, "fif", "i i", "fif", 'f', Block.fenceIron, 'i', Item.ingotIron);
+      }
+    
+    
     // Basic Gear
     GameRegistry.addRecipe(new ShapedOreRecipe(basicGear, "scs", "c c", "scs", 's', "stickWood", 'c', Block.cobblestone));
     GameRegistry.addRecipe(new ShapedOreRecipe(basicGear, "scs", "c c", "scs", 's', "woodStick", 'c', Block.cobblestone));
